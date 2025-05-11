@@ -1,0 +1,8 @@
+[
+            {
+                "Id": 1,
+                "NombreUsuario": "admin",
+                "Contrasena": "admin123",
+                "Rol": "Administrador"
+            }
+        ]

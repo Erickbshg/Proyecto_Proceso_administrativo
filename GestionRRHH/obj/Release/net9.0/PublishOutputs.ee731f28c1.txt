@@ -1,0 +1,8 @@
+/home/yann/Desktop/GestionRRHH/publish/RRHH
+/home/yann/Desktop/GestionRRHH/publish/App_Data/asistencias.json
+/home/yann/Desktop/GestionRRHH/publish/App_Data/empleados.json
+/home/yann/Desktop/GestionRRHH/publish/App_Data/usuarios.json
+/home/yann/Desktop/GestionRRHH/publish/RRHH.dll
+/home/yann/Desktop/GestionRRHH/publish/RRHH.deps.json
+/home/yann/Desktop/GestionRRHH/publish/RRHH.runtimeconfig.json
+/home/yann/Desktop/GestionRRHH/publish/RRHH.pdb

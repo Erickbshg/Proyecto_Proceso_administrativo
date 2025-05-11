@@ -1,0 +1,101 @@
+@model GestionRRHH.Models.Empleado
+
+@{
+    ViewData["Title"] = "Detalles del Empleado";
+}
+
+<div class="container py-4">
+    <div class="card mb-4">
+        <div class="card-body">
+            <h1>
+                <i class="fas fa-user-circle me-3" style="color: var(--secondary-color);"></i>
+                Detalles del Empleado
+            </h1>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 text-center mb-4 mb-md-0">
+                    <div class="p-3">
+                        <i class="fas fa-user-tie fa-6x mb-3" style="color: var(--secondary-color);"></i>
+                        <h3>@Model.Nombre @Model.Apellido</h3>
+                        <p class="text-muted">@Model.Cargo</p>
+                        <div class="mt-3">
+                            @if (Model.Activo)
+                            {
+                                <span class="badge bg-success p-2">Activo</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger p-2">Inactivo</span>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">ID</label>
+                                <p>@Model.Id</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Documento</label>
+                                <p>@Model.Documento</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Email</label>
+                                <p>@Model.Email</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Teléfono</label>
+                                <p>@Model.Telefono</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Dirección</label>
+                                <p>@Model.Direccion</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Fecha de Contratación</label>
+                                <p>@Model.FechaContratacion.ToString("dd/MM/yyyy")</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Departamento</label>
+                                <p>@Model.Departamento</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Salario</label>
+                                <p>$@Model.Salario.ToString("N2")</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <a asp-action="Editar" asp-route-id="@Model.Id" class="btn btn-warning">
+                    <i class="fas fa-edit me-2"></i> Editar
+                </a>
+                <a asp-action="Index" class="btn btn-secondary ms-2">
+                    <i class="fas fa-arrow-left me-2"></i> Volver
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,65 @@
+@model GestionRRHH.Models.Asistencia
+
+@{
+    ViewData["Title"] = "Registrar Salida";
+}
+
+<div class="container py-4">
+    <div class="card mb-4">
+        <div class="card-body">
+            <h1>
+                <i class="fas fa-sign-out-alt me-3" style="color: var(--secondary-color);"></i>
+                Registrar Salida
+            </h1>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            @if (ViewBag.Error != null)
+            {
+                <div class="alert alert-danger" role="alert">
+                    <i class="fas fa-exclamation-triangle me-2"></i> @ViewBag.Error
+                </div>
+            }
+
+            <div class="alert alert-info">
+                <i class="fas fa-info-circle me-2"></i>
+                Está a punto de registrar la salida para el empleado <strong>@ViewBag.NombreEmpleado</strong>.
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Fecha</label>
+                        <p>@Model.Fecha.ToString("dd/MM/yyyy")</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Hora de Entrada</label>
+                        <p>@Model.HoraEntrada.ToString(@"hh\:mm")</p>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Observaciones</label>
+                        <p>@(string.IsNullOrEmpty(Model.Observaciones) ? "Sin observaciones" : Model.Observaciones)</p>
+                    </div>
+                </div>
+            </div>
+
+            <form asp-action="RegistrarSalida">
+                <input type="hidden" asp-for="Id" />
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-clock me-2"></i> Registrar Salida
+                    </button>
+                    <a asp-action="Index" class="btn btn-secondary ms-2">
+                        <i class="fas fa-arrow-left me-2"></i> Volver
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+@model GestionRRHH.Models.Asistencia
+
+@{
+    ViewData["Title"] = "Eliminar Asistencia";
+}
+
+<div class="container py-4">
+    <div class="card mb-4">
+        <div class="card-body">
+            <h1>
+                <i class="fas fa-trash me-3" style="color: var(--accent-color);"></i>
+                Eliminar Asistencia
+            </h1>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="alert alert-danger mb-4">
+                <i class="fas fa-exclamation-triangle me-2"></i>
+                <strong>¿Está seguro de que desea eliminar esta asistencia?</strong>
+                <p class="mb-0">Esta acción no se puede deshacer.</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Empleado</label>
+                        <p>@ViewBag.NombreEmpleado</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Fecha</label>
+                        <p>@Model.Fecha.ToString("dd/MM/yyyy")</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Hora de Entrada</label>
+                        <p>@Model.HoraEntrada.ToString(@"hh\:mm")</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Hora de Salida</label>
+                        <p>
+                            @if (Model.HoraSalida.HasValue)
+                            {
+                                @Model.HoraSalida.Value.ToString(@"hh\:mm")
+                            }
+                            else
+                            {
+                                <span class="badge bg-warning">Pendiente</span>
+                            }
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <form asp-action="Eliminar">
+                <input type="hidden" asp-for="Id" />
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-trash me-2"></i> Confirmar Eliminación
+                    </button>
+                    <a asp-action="Index" class="btn btn-secondary ms-2">
+                        <i class="fas fa-arrow-left me-2"></i> Cancelar
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

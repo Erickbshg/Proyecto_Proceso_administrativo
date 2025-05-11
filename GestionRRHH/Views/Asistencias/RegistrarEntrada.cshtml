@@ -1,0 +1,57 @@
+@{
+    ViewData["Title"] = "Registrar Entrada";
+}
+
+<div class="container py-4">
+    <div class="card mb-4">
+        <div class="card-body">
+            <h1>
+                <i class="fas fa-sign-in-alt me-3" style="color: var(--secondary-color);"></i>
+                Registrar Entrada
+            </h1>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            @if (ViewBag.Error != null)
+            {
+                <div class="alert alert-danger" role="alert">
+                    <i class="fas fa-exclamation-triangle me-2"></i> @ViewBag.Error
+                </div>
+            }
+
+            <form asp-action="RegistrarEntrada">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="empleadoId" class="form-label">Empleado</label>
+                            <select id="empleadoId" name="empleadoId" class="form-select" required>
+                                <option value="">Seleccione un empleado</option>
+                                @foreach (var item in ViewBag.Empleados)
+                                {
+                                    <option value="@item.Value">@item.Text</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="observaciones" class="form-label">Observaciones</label>
+                            <textarea id="observaciones" name="observaciones" class="form-control" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-clock me-2"></i> Registrar Entrada
+                    </button>
+                    <a asp-action="Index" class="btn btn-secondary ms-2">
+                        <i class="fas fa-arrow-left me-2"></i> Volver
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,90 @@
+@model GestionRRHH.Models.Asistencia
+
+@{
+    ViewData["Title"] = "Editar Asistencia";
+}
+
+<div class="container py-4">
+    <div class="card mb-4">
+        <div class="card-body">
+            <h1>
+                <i class="fas fa-edit me-3" style="color: var(--secondary-color);"></i>
+                Editar Asistencia
+            </h1>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            @if (ViewBag.Error != null)
+            {
+                <div class="alert alert-danger" role="alert">
+                    <i class="fas fa-exclamation-triangle me-2"></i> @ViewBag.Error
+                </div>
+            }
+
+            <form asp-action="Editar">
+                <input type="hidden" asp-for="Id" />
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label asp-for="EmpleadoId" class="form-label">Empleado</label>
+                            <select asp-for="EmpleadoId" asp-items="ViewBag.Empleados" class="form-select" required>
+                                <option value="">Seleccione un empleado</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label asp-for="Fecha" class="form-label">Fecha</label>
+                            <input asp-for="Fecha" type="date" class="form-control" required />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label asp-for="HoraEntrada" class="form-label">Hora de Entrada</label>
+                            <input asp-for="HoraEntrada" type="time" class="form-control" required />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label asp-for="HoraSalida" class="form-label">Hora de Salida</label>
+                            <input asp-for="HoraSalida" type="time" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label asp-for="Estado" class="form-label">Estado</label>
+                            <select asp-for="Estado" class="form-select" required>
+                                <option value="">Seleccione un estado</option>
+                                <option value="Presente">Presente</option>
+                                <option value="Ausente">Ausente</option>
+                                <option value="Tardanza">Tardanza</option>
+                                <option value="Permiso">Permiso</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label asp-for="Observaciones" class="form-label">Observaciones</label>
+                            <textarea asp-for="Observaciones" class="form-control" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save me-2"></i> Guardar Cambios
+                    </button>
+                    <a asp-action="Index" class="btn btn-secondary ms-2">
+                        <i class="fas fa-arrow-left me-2"></i> Volver
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

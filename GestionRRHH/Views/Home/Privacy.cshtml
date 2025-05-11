@@ -1,0 +1,67 @@
+@{
+    ViewData["Title"] = "Política de Privacidad";
+}
+
+<div class="container py-4">
+    <div class="card">
+        <div class="card-body">
+            <h1>
+                <i class="fas fa-shield-alt me-3" style="color: var(--secondary-color);"></i>
+                @ViewData["Title"]
+            </h1>
+            <p class="lead">Esta página describe las políticas de privacidad del Sistema de Gestión de RRHH.</p>
+            
+            <hr class="my-4" style="border-color: var(--card-border);">
+            
+            <h4>Recopilación de Datos</h4>
+            <p>
+                El Sistema de Gestión de RRHH recopila información personal de los empleados con el único propósito
+                de gestionar los recursos humanos de la organización. Esta información incluye, pero no se limita a:
+                nombres, información de contacto, historial laboral y registros de asistencia.
+            </p>
+            
+            <h4>Uso de la Información</h4>
+            <p>
+                La información recopilada se utiliza exclusivamente para:
+            </p>
+            <ul>
+                <li>Gestionar la relación laboral entre la organización y sus empleados</li>
+                <li>Mantener registros precisos de asistencia y desempeño</li>
+                <li>Cumplir con requisitos legales y regulatorios</li>
+            </ul>
+            
+            <h4>Protección de Datos</h4>
+            <p>
+                Implementamos medidas de seguridad técnicas y organizativas para proteger la información personal
+                contra el acceso no autorizado, la alteración, la divulgación o la destrucción.
+            </p>
+            
+            <h4>Retención de Datos</h4>
+            <p>
+                Conservamos la información personal solo durante el tiempo necesario para los fines para los que
+                fue recopilada, o según lo requiera la ley.
+            </p>
+            
+            <h4>Derechos de los Empleados</h4>
+            <p>
+                Los empleados tienen derecho a:
+            </p>
+            <ul>
+                <li>Acceder a su información personal</li>
+                <li>Solicitar la corrección de información inexacta</li>
+                <li>Solicitar la eliminación de su información (sujeto a requisitos legales)</li>
+            </ul>
+            
+            <h4>Contacto</h4>
+            <p>
+                Si tiene preguntas sobre esta política de privacidad, comuníquese con el departamento de RRHH.
+            </p>
+            
+            <div class="mt-4">
+                <a asp-controller="Home" asp-action="Index" class="btn btn-primary">
+                    <i class="fas fa-arrow-left me-2"></i> Volver al Dashboard
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

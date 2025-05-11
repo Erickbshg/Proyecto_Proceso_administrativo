@@ -1,0 +1,108 @@
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container py-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="display-4">
+                        <i class="fas fa-chart-line me-3" style="color: var(--secondary-color);"></i>
+                        Dashboard
+                    </h1>
+                    <p class="lead">Bienvenido al Sistema de Gestión de Recursos Humanos</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-users fa-4x mb-3" style="color: var(--secondary-color);"></i>
+                    <h2 class="card-title">@ViewBag.TotalEmpleados</h2>
+                    <p class="card-text">Total de Empleados</p>
+                    <a asp-controller="Empleados" asp-action="Index" class="btn btn-outline-light mt-2">
+                        <i class="fas fa-eye me-1"></i> Ver Empleados
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-user-check fa-4x mb-3" style="color: var(--accent-color);"></i>
+                    <h2 class="card-title">@ViewBag.EmpleadosActivos</h2>
+                    <p class="card-text">Empleados Activos</p>
+                    <a asp-controller="Empleados" asp-action="Crear" class="btn btn-outline-light mt-2">
+                        <i class="fas fa-plus me-1"></i> Nuevo Empleado
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-clipboard-check fa-4x mb-3" style="color: var(--primary-color);"></i>
+                    <h2 class="card-title">@ViewBag.AsistenciasHoy</h2>
+                    <p class="card-text">Asistencias de Hoy</p>
+                    <a asp-controller="Asistencias" asp-action="RegistrarEntrada" class="btn btn-outline-light mt-2">
+                        <i class="fas fa-clock me-1"></i> Registrar Entrada
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">
+                        <i class="fas fa-tasks me-2" style="color: var(--secondary-color);"></i>
+                        Acciones Rápidas
+                    </h3>
+                    <div class="row g-3 mt-2">
+                        <div class="col-md-3">
+                            <a asp-controller="Empleados" asp-action="Index" class="btn btn-primary d-block">
+                                <i class="fas fa-users me-2"></i> Gestionar Empleados
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a asp-controller="Asistencias" asp-action="Index" class="btn btn-secondary d-block">
+                                <i class="fas fa-clipboard-list me-2"></i> Ver Asistencias
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a asp-controller="Asistencias" asp-action="RegistrarEntrada" class="btn btn-info d-block">
+                                <i class="fas fa-sign-in-alt me-2"></i> Registrar Entrada
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a asp-controller="Empleados" asp-action="Crear" class="btn btn-success d-block">
+                                <i class="fas fa-user-plus me-2"></i> Nuevo Empleado
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Animación para las tarjetas de estadísticas
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+        });
+    </script>
+}
